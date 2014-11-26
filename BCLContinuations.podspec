@@ -71,7 +71,7 @@ TODO:
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/BenedictC/BCLContinuations.git", :tag => "0.0.3" }
+  s.source       = { :git => "https://github.com/BenedictC/BCLContinuations.git", :tag => "0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -82,7 +82,7 @@ TODO:
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "BCLContinuations", "BCLContinuations/**/*.{h,m}", "BCJSONContinuations", "BCJSONContinuations/**/*.{h,m}", "BCLContinuations", "BCLContinuations/**/*.{h,m}"
+  s.source_files  = "BCLContinuations", "BCLContinuations/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "**/*.h"
