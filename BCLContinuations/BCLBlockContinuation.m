@@ -19,16 +19,24 @@
 
 
 
--(instancetype)initWithBlock:(BOOL(^)(NSError **outError))block
+-(instancetype)initWithName:(NSString *)name block:(BOOL(^)(NSError **outError))block
 {
     NSCParameterAssert(block != NULL);
-    
+
     self = [super init];
     if (self == nil) return nil;
 
     _block = block;
+    _name = [name copy];
 
     return self;
+}
+
+
+
+-(instancetype)initWithBlock:(BOOL(^)(NSError **outError))block
+{
+    return [self initWithName:nil block:block];
 }
 
 
@@ -45,11 +53,13 @@
 
 
 
-
-
-id<BCLContinuation> BCLContinuationWithBlock(BOOL(^block)(NSError **outError)) {
-
-    return [[BCLBlockContinuation alloc] initWithBlock:block];
+id<BCLContinuation> __attribute__((overloadable)) BCLContinuationWithBlock(NSString *name, BOOL(^block)(NSError **outError)) {
+    return [[BCLBlockContinuation alloc] initWithName:name block:block];
 }
 
 
+
+id<BCLContinuation> __attribute__((overloadable)) BCLContinuationWithBlock(BOOL(^block)(NSError **outError)) {
+
+    return [[BCLBlockContinuation alloc] initWithBlock:block];
+}

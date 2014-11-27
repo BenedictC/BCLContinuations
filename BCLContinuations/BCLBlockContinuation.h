@@ -21,11 +21,13 @@
 
  @return An initalized continuation.
  */
+-(instancetype)initWithName:(NSString *)name block:(BOOL(^)(NSError **outError))block;
 -(instancetype)initWithBlock:(BOOL(^)(NSError **outError))block;
 @property(nonatomic, readonly, copy) BOOL(^block)(NSError **outError);
-
+@property(nonatomic, readonly) NSString *name;
 @end
 
 
 
-id<BCLContinuation> BCLContinuationWithBlock(BOOL(^block)(NSError **outError)) __attribute__((warn_unused_result));
+id<BCLContinuation> __attribute__((overloadable)) BCLContinuationWithBlock(NSString *name, BOOL(^block)(NSError **outError)) __attribute__((warn_unused_result));
+id<BCLContinuation> __attribute__((overloadable)) BCLContinuationWithBlock(BOOL(^block)(NSError **outError)) __attribute__((warn_unused_result));
