@@ -17,11 +17,10 @@ Pod::Spec.new do |s|
 
   s.name         = "BCLContinuations"
   s.version      = "0.2"
-  s.summary      = "An Objective-C continuations library."
+  s.summary      = "A little continuations library for Objective-C."
 
   s.description  = <<-DESC
-TODO:
-
+A little continuations library for Objective-C. Created as a by product of BCJSONMapper. Useful for organising a sequence of tasks, any of which could fail.
                    DESC
 
   s.homepage     = "https://github.com/BenedictC/BCLContinuations"
