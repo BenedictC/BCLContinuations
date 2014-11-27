@@ -39,12 +39,13 @@ NSString * const BCLDetailedErrorsKey = @"BCLDetailedErrorsKey";
     if (continuation == nil) {
         BOOL didSucceed = errors.count == 0;
         NSError *error = (didSucceed) ? nil : [NSError errorWithDomain:BCLErrorDomain code:BCLMultipleErrorsError userInfo:@{BCLDetailedErrorsKey:errors}];
-        completionHandler(YES, error);
+        completionHandler(didSucceed, error);
         return;
     }
 
     [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
-        NSArray *nextErrors = (!didSucceed && error == nil) ? [errors arrayByAddingObject:error] : errors;
+        NSError *actualError = (!didSucceed && error == nil) ? [NSError errorWithDomain:@"TODO: Unknown error" code:0 userInfo:nil] : error;
+        NSArray *nextErrors = (!didSucceed) ? [errors arrayByAddingObject:actualError] : errors;
         NSArray *remainingContinuations = [continuations subarrayWithRange:(NSRange){.location = 1, .length = continuations.count-1}];
         [BCLContinuations untilEndWithContinuations:remainingContinuations errors:nextErrors completionHandler:completionHandler];
     }];
@@ -122,7 +123,7 @@ NSString * const BCLDetailedErrorsKey = @"BCLDetailedErrorsKey";
     [self untilErrorWithContinuations:continuations completionHandler:^(BOOL didSucceed, NSError *error) {
         returnError = (didSucceed) ? nil : error;
     }];
-
+    
     return returnError;
 }
 
