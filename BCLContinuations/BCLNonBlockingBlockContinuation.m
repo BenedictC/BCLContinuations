@@ -21,7 +21,10 @@
 
 -(instancetype)initWithBlock:(void(^)(BCLFinishContinuation))block
 {
-    NSCParameterAssert(block != NULL);
+    if (block == NULL) {
+        [[NSException exceptionWithName:NSInvalidArgumentException reason:@"'block' must not be NULL" userInfo:nil] raise];
+        return nil;
+    }
 
     self = [super init];
     if (self == nil) return nil;
