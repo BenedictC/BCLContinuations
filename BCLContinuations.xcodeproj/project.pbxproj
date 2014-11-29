@@ -24,6 +24,7 @@
 		827D3A741A29D82300FEDF53 /* BCLContinuationsDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421141A26245D00AE3309 /* BCLContinuationsDefines.h */; };
 		827D3A751A29D82300FEDF53 /* BCLControlFlowContinuations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421151A26245D00AE3309 /* BCLControlFlowContinuations.h */; };
 		827D3A761A29D82300FEDF53 /* BCLNonBlockingBlockContinuation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421171A26245D00AE3309 /* BCLNonBlockingBlockContinuation.h */; };
+		82FBCA151A2A49D100DAAED1 /* BCLNonBlockingBlockContinuationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FBCA141A2A49D100DAAED1 /* BCLNonBlockingBlockContinuationTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		820421301A2627AD00AE3309 /* BCLContinuations.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = BCLContinuations.podspec; sourceTree = "<group>"; };
 		820421311A2627AD00AE3309 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		820421321A2627AD00AE3309 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		82FBCA141A2A49D100DAAED1 /* BCLNonBlockingBlockContinuationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLNonBlockingBlockContinuationTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				820421251A26248000AE3309 /* BCLBlockContinuationTests.m */,
+				82FBCA141A2A49D100DAAED1 /* BCLNonBlockingBlockContinuationTests.m */,
 				820421261A26248000AE3309 /* BCLContinuationsTests.m */,
 				820421271A26248000AE3309 /* BCLControlFlowContinuationsTests.m */,
 				820421281A26248000AE3309 /* Support Files */,
@@ -315,6 +318,7 @@
 				8204212B1A26248000AE3309 /* BCLContinuationsTests.m in Sources */,
 				8204212A1A26248000AE3309 /* BCLBlockContinuationTests.m in Sources */,
 				8204212C1A26248000AE3309 /* BCLControlFlowContinuationsTests.m in Sources */,
+				82FBCA151A2A49D100DAAED1 /* BCLNonBlockingBlockContinuationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
