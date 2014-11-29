@@ -44,9 +44,19 @@ NSString * const BCLDetailedErrorsKey = @"BCLDetailedErrorsKey";
     }
 
     [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
-        NSError *actualError = (!didSucceed && error == nil) ? [NSError errorWithDomain:@"TODO: Unknown error" code:0 userInfo:nil] : error;
-        NSArray *nextErrors = (!didSucceed) ? [errors arrayByAddingObject:actualError] : errors;
+
         NSArray *remainingContinuations = [continuations subarrayWithRange:(NSRange){.location = 1, .length = continuations.count-1}];
+
+        NSArray *nextErrors = (didSucceed) ? errors : ({
+            NSError *actualError = (error != nil) ? error : ({
+                NSString *description = NSLocalizedString(@"A continuation reported failure but did not return an error.", nil);
+                NSDictionary *userInfo = @{NSLocalizedDescriptionKey: description};
+                [NSError errorWithDomain:BCLErrorDomain code:BCLUnknownError userInfo:userInfo];
+            });
+
+            [errors arrayByAddingObject:actualError];
+        });
+
         [BCLContinuations untilEndWithContinuations:remainingContinuations errors:nextErrors completionHandler:completionHandler];
     }];
 }
