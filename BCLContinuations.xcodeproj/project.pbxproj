@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		820421011A26243400AE3309 /* libBCLContinuationsOSX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 820420F61A26243400AE3309 /* libBCLContinuationsOSX.dylib */; };
-		820421191A26245D00AE3309 /* BCLBlockContinuation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8204210E1A26245D00AE3309 /* BCLBlockContinuation.h */; };
 		8204211A1A26245D00AE3309 /* BCLBlockContinuation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8204210F1A26245D00AE3309 /* BCLBlockContinuation.m */; };
-		8204211B1A26245D00AE3309 /* BCLContinuationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 820421101A26245D00AE3309 /* BCLContinuationProtocol.h */; };
-		8204211C1A26245D00AE3309 /* BCLContinuations.h in Headers */ = {isa = PBXBuildFile; fileRef = 820421111A26245D00AE3309 /* BCLContinuations.h */; };
-		8204211D1A26245D00AE3309 /* BCLContinuationsClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 820421121A26245D00AE3309 /* BCLContinuationsClass.h */; };
 		8204211E1A26245D00AE3309 /* BCLContinuationsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 820421131A26245D00AE3309 /* BCLContinuationsClass.m */; };
-		8204211F1A26245D00AE3309 /* BCLContinuationsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 820421141A26245D00AE3309 /* BCLContinuationsDefines.h */; };
-		820421201A26245D00AE3309 /* BCLControlFlowContinuations.h in Headers */ = {isa = PBXBuildFile; fileRef = 820421151A26245D00AE3309 /* BCLControlFlowContinuations.h */; };
 		820421211A26245D00AE3309 /* BCLControlFlowContinuations.m in Sources */ = {isa = PBXBuildFile; fileRef = 820421161A26245D00AE3309 /* BCLControlFlowContinuations.m */; };
-		820421221A26245D00AE3309 /* BCLNonBlockingBlockContinuation.h in Headers */ = {isa = PBXBuildFile; fileRef = 820421171A26245D00AE3309 /* BCLNonBlockingBlockContinuation.h */; };
 		820421231A26245D00AE3309 /* BCLNonBlockingBlockContinuation.m in Sources */ = {isa = PBXBuildFile; fileRef = 820421181A26245D00AE3309 /* BCLNonBlockingBlockContinuation.m */; };
 		8204212A1A26248000AE3309 /* BCLBlockContinuationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 820421251A26248000AE3309 /* BCLBlockContinuationTests.m */; };
 		8204212B1A26248000AE3309 /* BCLContinuationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 820421261A26248000AE3309 /* BCLContinuationsTests.m */; };
 		8204212C1A26248000AE3309 /* BCLControlFlowContinuationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 820421271A26248000AE3309 /* BCLControlFlowContinuationsTests.m */; };
 		8204212E1A2624E900AE3309 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 820420F11A2623F400AE3309 /* main.m */; };
 		8204212F1A2625EB00AE3309 /* libBCLContinuationsOSX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 820420F61A26243400AE3309 /* libBCLContinuationsOSX.dylib */; };
+		827D3A701A29D82300FEDF53 /* BCLBlockContinuation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8204210E1A26245D00AE3309 /* BCLBlockContinuation.h */; };
+		827D3A711A29D82300FEDF53 /* BCLContinuationProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421101A26245D00AE3309 /* BCLContinuationProtocol.h */; };
+		827D3A721A29D82300FEDF53 /* BCLContinuations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421111A26245D00AE3309 /* BCLContinuations.h */; };
+		827D3A731A29D82300FEDF53 /* BCLContinuationsClass.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421121A26245D00AE3309 /* BCLContinuationsClass.h */; };
+		827D3A741A29D82300FEDF53 /* BCLContinuationsDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421141A26245D00AE3309 /* BCLContinuationsDefines.h */; };
+		827D3A751A29D82300FEDF53 /* BCLControlFlowContinuations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421151A26245D00AE3309 /* BCLControlFlowContinuations.h */; };
+		827D3A761A29D82300FEDF53 /* BCLNonBlockingBlockContinuation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820421171A26245D00AE3309 /* BCLNonBlockingBlockContinuation.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +46,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		827D3A6F1A29D80C00FEDF53 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = usr/local/include/BCLContinuations;
+			dstSubfolderSpec = 16;
+			files = (
+				827D3A701A29D82300FEDF53 /* BCLBlockContinuation.h in CopyFiles */,
+				827D3A711A29D82300FEDF53 /* BCLContinuationProtocol.h in CopyFiles */,
+				827D3A721A29D82300FEDF53 /* BCLContinuations.h in CopyFiles */,
+				827D3A731A29D82300FEDF53 /* BCLContinuationsClass.h in CopyFiles */,
+				827D3A741A29D82300FEDF53 /* BCLContinuationsDefines.h in CopyFiles */,
+				827D3A751A29D82300FEDF53 /* BCLControlFlowContinuations.h in CopyFiles */,
+				827D3A761A29D82300FEDF53 /* BCLNonBlockingBlockContinuation.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		820420E61A2623B600AE3309 /* BCLContinuations */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BCLContinuations; sourceTree = BUILT_PRODUCTS_DIR; };
 		820420F11A2623F400AE3309 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		820420F61A26243400AE3309 /* libBCLContinuationsOSX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libBCLContinuationsOSX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		820421001A26243400AE3309 /* BCLContinuationsOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BCLContinuationsOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		820421001A26243400AE3309 /* BCLContinuationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BCLContinuationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8204210E1A26245D00AE3309 /* BCLBlockContinuation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLBlockContinuation.h; sourceTree = "<group>"; };
 		8204210F1A26245D00AE3309 /* BCLBlockContinuation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLBlockContinuation.m; sourceTree = "<group>"; };
 		820421101A26245D00AE3309 /* BCLContinuationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLContinuationProtocol.h; sourceTree = "<group>"; };
@@ -118,7 +134,7 @@
 			children = (
 				820420E61A2623B600AE3309 /* BCLContinuations */,
 				820420F61A26243400AE3309 /* libBCLContinuationsOSX.dylib */,
-				820421001A26243400AE3309 /* BCLContinuationsOSXTests.xctest */,
+				820421001A26243400AE3309 /* BCLContinuationsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,23 +186,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		820420F41A26243400AE3309 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8204211F1A26245D00AE3309 /* BCLContinuationsDefines.h in Headers */,
-				820421191A26245D00AE3309 /* BCLBlockContinuation.h in Headers */,
-				8204211B1A26245D00AE3309 /* BCLContinuationProtocol.h in Headers */,
-				8204211D1A26245D00AE3309 /* BCLContinuationsClass.h in Headers */,
-				8204211C1A26245D00AE3309 /* BCLContinuations.h in Headers */,
-				820421221A26245D00AE3309 /* BCLNonBlockingBlockContinuation.h in Headers */,
-				820421201A26245D00AE3309 /* BCLControlFlowContinuations.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		820420E51A2623B600AE3309 /* BCLContinuations */ = {
 			isa = PBXNativeTarget;
@@ -211,7 +210,7 @@
 			buildPhases = (
 				820420F21A26243400AE3309 /* Sources */,
 				820420F31A26243400AE3309 /* Frameworks */,
-				820420F41A26243400AE3309 /* Headers */,
+				827D3A6F1A29D80C00FEDF53 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -237,7 +236,7 @@
 			);
 			name = BCLContinuationsTests;
 			productName = BCLContinuationsOSXTests;
-			productReference = 820421001A26243400AE3309 /* BCLContinuationsOSXTests.xctest */;
+			productReference = 820421001A26243400AE3309 /* BCLContinuationsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -502,6 +501,7 @@
 				820421091A26243400AE3309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8204210A1A26243400AE3309 /* Build configuration list for PBXNativeTarget "BCLContinuationsTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +510,7 @@
 				8204210C1A26243400AE3309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
