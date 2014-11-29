@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BCLContinuations"
-  s.version      = "0.2"
+  s.version      = "0.3"
   s.summary      = "A little continuations library for Objective-C."
 
   s.description  = <<-DESC
@@ -70,7 +70,7 @@ A little continuations library for Objective-C. Created as a by product of BCJSO
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/BenedictC/BCLContinuations.git", :tag => "0.2" }
+  s.source       = { :git => "https://github.com/BenedictC/BCLContinuations.git", :tag => "0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
