@@ -24,8 +24,8 @@
 {
     //Given
     NSString *name = @"test continuation";
-    BCLNonBlockingBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(name, ^(BCLFinishContinuation finish) {
-        finish(YES, nil);
+    BCLNonBlockingBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(name, ^(BCLContinuationCompletionHandler handler) {
+        handler(YES, nil);
     });
 
     //When
@@ -54,8 +54,8 @@
 {
     //Given
     NSString *name = @"test continuation";
-    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
-        finish(YES, nil);
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLContinuationCompletionHandler handler) {
+        handler(YES, nil);
     });
 
     //When
@@ -80,8 +80,8 @@
     //Given
     NSString *name = @"test continuation";
     NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
-        finish(YES, error);
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLContinuationCompletionHandler handler) {
+        handler(YES, error);
     });
 
     //When
@@ -106,8 +106,8 @@
     //Given
     NSString *name = @"test continuation";
     NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
-        finish(NO, error);
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLContinuationCompletionHandler handler) {
+        handler(NO, error);
     });
 
     //When
@@ -132,8 +132,8 @@
     //Given
     NSString *name = @"test continuation";
     NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
-        finish(NO, nil);
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLContinuationCompletionHandler handler) {
+        handler(NO, nil);
     });
 
     //When

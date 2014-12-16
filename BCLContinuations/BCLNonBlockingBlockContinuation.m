@@ -14,12 +14,19 @@
 
 -(instancetype)init
 {
-    return [self initWithBlock:NULL];
+    return [self initWithName:nil block:NULL];
 }
 
 
 
--(instancetype)initWithBlock:(void(^)(BCLFinishContinuation))block
+-(instancetype)initWithBlock:(void(^)(BCLContinuationCompletionHandler handler))block
+{
+    return [self initWithName:nil block:block];
+}
+
+
+
+-(instancetype)initWithName:(NSString *)name block:(void(^)(BCLContinuationCompletionHandler handler))block
 {
     if (block == NULL) {
         [[NSException exceptionWithName:NSInvalidArgumentException reason:@"'block' must not be NULL" userInfo:nil] raise];
@@ -45,8 +52,12 @@
 
 
 
-id<BCLContinuation> BCLNonBlockingContinuationWithBlock(void(^block)(BCLFinishContinuation)) {
-
-    return [[BCLNonBlockingBlockContinuation alloc] initWithBlock:block];
+id<BCLContinuation> __attribute__((overloadable)) BCLNonBlockingContinuationWithBlock(NSString *name, void(^continuationBlock)(BCLContinuationCompletionHandler handler)) {
+    return [[BCLNonBlockingBlockContinuation alloc] initWithName:name block:continuationBlock];
 }
 
+
+
+id<BCLContinuation> __attribute__((overloadable)) BCLNonBlockingContinuationWithBlock(void(^continuationBlock)(BCLContinuationCompletionHandler handler)) {
+    return [[BCLNonBlockingBlockContinuation alloc] initWithName:nil block:continuationBlock];
+}
