@@ -25,7 +25,7 @@ enum : NSInteger {
     /**
      Error code to denote that multiple errors occured while executing the continuations.
      */
-    BCLMultipleErrorsError,
+    BCLMultipleErrorsError = 1000,
     /**
      Error code to denote that an unknown error occured while executing the continuations.
      */
