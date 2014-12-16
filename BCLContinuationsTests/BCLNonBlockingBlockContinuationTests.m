@@ -8,33 +8,147 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "BCLContinuations.h"
+
+
 
 @interface BCLNonBlockingBlockContinuationTests : XCTestCase
 
 @end
 
+
+
 @implementation BCLNonBlockingBlockContinuationTests
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+-(void)testValidConstruction
+{
+    //Given
+    NSString *name = @"test continuation";
+    BCLNonBlockingBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(name, ^(BCLFinishContinuation finish) {
+        finish(YES, nil);
+    });
+
+    //When
+
+    //Then
+    XCTAssertNotNil(continuation, @"Construction failed.");
+    XCTAssertEqualObjects(name, continuation.name, "Construction failed.");
+    XCTAssertNotNil(continuation.block, "Construction failed.");
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+
+
+-(void)testInvalidConstruction
+{
+    //Given
+    //When
+    //Then
+#pragma GCC diagnostic ignored "-Wall"
+    XCTAssertThrows(BCLNonBlockingContinuationWithBlock(NULL), @"Construction failed.");
+#pragma GCC diagnostic pop
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+
+-(void)testInvocationWithSuccessfulBlock
+{
+    //Given
+    NSString *name = @"test continuation";
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
+        finish(YES, nil);
+    });
+
+    //When
+    __block id actualResult = nil;
+    __block id actualError = nil;
+    [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
+        actualResult = @(didSucceed);
+        actualError = error;
     }];
+
+    //Then
+    id expectedResult = @YES;
+    XCTAssertEqualObjects(expectedResult, actualResult);
+    id expectedError = nil;
+    XCTAssertEqualObjects(expectedError, actualError);
+}
+
+
+
+-(void)testInvocationWithSuccessfulBlockWithIncorrectOutError
+{
+    //Given
+    NSString *name = @"test continuation";
+    NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
+        finish(YES, error);
+    });
+
+    //When
+    __block id actualResult = nil;
+    __block id actualError = nil;
+    [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
+        actualResult = @(didSucceed);
+        actualError = error;
+    }];
+
+    //Then
+    id expectedResult = @YES;
+    XCTAssertEqualObjects(expectedResult, actualResult);
+    id expectedError = nil;
+    XCTAssertEqualObjects(expectedError, actualError);
+}
+
+
+
+-(void)testInvocationWithFailedBlock
+{
+    //Given
+    NSString *name = @"test continuation";
+    NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
+        finish(NO, error);
+    });
+
+    //When
+    __block id actualResult = nil;
+    __block id actualError = nil;
+    [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
+        actualResult = @(didSucceed);
+        actualError = error;
+    }];
+
+    //Then
+    id expectedResult = @NO;
+    XCTAssertEqualObjects(expectedResult, actualResult);
+    id expectedError = error;
+    XCTAssertEqualObjects(expectedError, actualError);
+}
+
+
+
+-(void)testInvocationWithFailedBlockWithIncorrectOutError
+{
+    //Given
+    NSString *name = @"test continuation";
+    NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
+    BCLBlockContinuation *continuation = BCLNonBlockingContinuationWithBlock(^(BCLFinishContinuation finish) {
+        finish(NO, nil);
+    });
+
+    //When
+    __block id actualResult = nil;
+    __block NSInteger actualErrorCode = 0;
+    [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
+        actualResult = @(didSucceed);
+        actualErrorCode = error.code;
+    }];
+
+    //Then
+    id expectedResult = @YES;
+    XCTAssertEqualObjects(expectedResult, actualResult);
+    NSInteger expectedErrorCode = BCLUnknownError;
+    XCTAssertEqual(expectedErrorCode, actualErrorCode);
 }
 
 @end
