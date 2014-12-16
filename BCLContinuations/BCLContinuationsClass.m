@@ -44,6 +44,15 @@ NSString * const BCLDetailedErrorsKey = @"BCLDetailedErrorsKey";
     }
 
     [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
+        //Validate result
+        if (didSucceed && error != nil) {
+            [[NSException exceptionWithName:NSInvalidArgumentException reason:@"Invalid result combination. When didSucceed is YES error must be nil." userInfo:nil] raise];
+            return;
+        }
+        if (!didSucceed && error == nil) {
+            [[NSException exceptionWithName:NSInvalidArgumentException reason:@"Invalid result combination. When didSucceed is NO error must be non-nil." userInfo:nil] raise];
+            return;
+        }
 
         NSArray *remainingContinuations = [continuations subarrayWithRange:(NSRange){.location = 1, .length = continuations.count-1}];
 
@@ -72,6 +81,16 @@ NSString * const BCLDetailedErrorsKey = @"BCLDetailedErrorsKey";
     }
 
     [continuation executeWithCompletionHandler:^(BOOL didSucceed, NSError *error) {
+        //Validate result
+        if (didSucceed && error != nil) {
+            [[NSException exceptionWithName:NSInvalidArgumentException reason:@"Invalid result combination. When didSucceed is YES error must be nil." userInfo:nil] raise];
+            return;
+        }
+        if (!didSucceed && error == nil) {
+            [[NSException exceptionWithName:NSInvalidArgumentException reason:@"Invalid result combination. When didSucceed is NO error must be non-nil." userInfo:nil] raise];
+            return;
+        }
+
         if (!didSucceed) {
             completionHandler(NO, error);
             return;
