@@ -70,7 +70,7 @@ BCLContinuations was a little continuations library for Objective-C. It wasn't a
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/BenedictC/BCLContinuations.git", :tag => "0.4" }
+  s.source       = { :git => "https://github.com/BenedictC/BCLContinuations.git", :tag => "0.4.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
