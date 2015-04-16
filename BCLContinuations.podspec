@@ -16,16 +16,16 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BCLContinuations"
-  s.version      = "0.4"
+  s.version      = "0.4.1"
   s.summary      = "A little continuations library for Objective-C."
 
   s.description  = <<-DESC
-A little continuations library for Objective-C. Created as a by product of BCJSONMapper. Useful for organising a sequence of tasks, any of which could fail.
+BCLContinuations was a little continuations library for Objective-C. It wasn't a good idea. It's now dead. Don't use it.
                    DESC
 
   s.homepage     = "https://github.com/BenedictC/BCLContinuations"
 
-
+ s.deprecated = true
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
